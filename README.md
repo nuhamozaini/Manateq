@@ -2,6 +2,10 @@
 
 WIP :construction:
 
+## Credit
+
+I give credit to [Abdulaziz Homaily](https://github.com/homaily/Saudi-Arabia-Regions-Cities-and-Districts)for providing data.
+
 ## Installation
 
 Add this line to your application's Gemfile:
