@@ -7,7 +7,7 @@ module Manateq
     attr_accessor :english_name
 
     def self.get_regions
-      data = Manateq::Helper.new.to_hash 'regions'
+      data = Manateq::Helper.to_hash 'regions'
       result = []
       data.each do |region|
         r_obj = Region.new
