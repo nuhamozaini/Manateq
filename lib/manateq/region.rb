@@ -1,4 +1,3 @@
-require 'json'
 require_relative '../../lib/manateq/helper'
 module Manateq
   class Region
@@ -6,7 +5,7 @@ module Manateq
     attr_accessor :arabic_name
     attr_accessor :english_name
 
-    def self.get_regions
+    def self.list_regions
       data = Manateq::Helper.to_hash 'regions'
       result = []
       data.each do |region|
@@ -20,12 +19,11 @@ module Manateq
     end
 
     def self.search_region name
-      data = Manateq::Region.get_regions
-
+      data = Manateq::Region.list_regions
       result = nil
-
       data.each do |region|
-        if region.arabic_name.downcase.index(name.downcase) != nil  or region.english_name.downcase.index(name.downcase) != nil
+        if region.arabic_name.downcase.index(name.downcase) != nil  or
+          region.english_name.downcase.index(name.downcase) != nil
           result = region
         end
       end
@@ -33,11 +31,16 @@ module Manateq
       result
     end
 
+    def self.search_region_id id
+      data = Manateq::Region.list_regions
+      result = nil
+      data.each do |region|
+        unless region.id != id
+          result = region
+        end
+      end
+      result
+    end
+
   end
 end
-
-r = Manateq::Region.search_region 'Qassim'
-pp r
-
-# TODO: view all regions
-#
