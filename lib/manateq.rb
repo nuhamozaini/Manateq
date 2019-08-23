@@ -8,3 +8,6 @@ module Manateq
   class Error < StandardError; end
   # Your code goes here...
 end
+
+# TODO: optimize file read, the whole file loaded on memory is a memory consumption
+# TODO: methods (list and search) are repeated, redundant code.

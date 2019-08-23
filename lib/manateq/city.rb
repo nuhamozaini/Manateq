@@ -33,5 +33,16 @@ class City
     end
     result
   end
+
+  def self.search_city_id id
+    data = Manateq::City.list_cities
+    result = nil
+    data.each do |city|
+      unless city.id != id
+        result = city
+      end
+    end
+    result
+  end
 end
 end
