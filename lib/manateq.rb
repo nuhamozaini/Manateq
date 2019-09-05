@@ -7,7 +7,5 @@ require_relative 'manateq/district'
 
 module Manateq
   class Error < StandardError; end
-  # Your code goes here...
-end
 
-pp Manateq::District.list
+end

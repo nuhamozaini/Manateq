@@ -1,6 +1,6 @@
 # Manateq
 
-WIP :construction:
+Manateq - a handy library for searching and listing regions, cities and districts in Saudi Arabia
 
 ## Credit
 
@@ -24,13 +24,32 @@ Or install it yourself as:
 
 ## Usage
 
+```ruby
+require 'manateq'
 
+# to list all districts, cities or regions
+districts = Manateq::District.list
+cities = Manateq::City.list
+regions = Manateq::Region.list
 
-## Development
+# to search a city by name, and same goes for districts and regions
+city = Manateq::City.search 'Riyadh' 
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+# to search a city by id, and same goes for districts and regions
+city = Manateq::City.get_by_id 6
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+# A city object example
+#<Manateq::City:0x00007fa7f803a000
+ @arabic_name="الرياض",
+ @english_name="Riyadh",
+ @id=3,
+ @region=
+  #<Manateq::Region:0x00007fa7f8065d40
+   @arabic_name="الرياض",
+   @english_name="Ar Riyadh",
+   @id=6>>
+ 
+```
 
 ## Contributing
 
